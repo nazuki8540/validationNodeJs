@@ -1,5 +1,9 @@
 var express = require("express");
 var app = express();
+const session = require("express-session");
+var flash = require("express-flash");
+var bodyParser = require("body-parser");
+
 
 app.set('view engine','ejs');
 
@@ -16,7 +20,11 @@ app.use(session({
     cookie: { secure: true }
   }))
 
-app.listen(4000,(req,res) => {
+app.get("/",(req,res) =>{
+    res.render("index");
+})
+
+app.listen(3580,(req,res) => {
     console.log("servidor rodando!");
 });
 
